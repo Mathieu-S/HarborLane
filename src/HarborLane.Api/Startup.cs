@@ -2,7 +2,9 @@ using System;
 using System.IO;
 using System.Reflection;
 using HarborLane.Domain.Crawlers;
+using HarborLane.Domain.Repositories;
 using HarborLane.Services.Crawlers;
+using HarborLane.Services.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +31,7 @@ namespace HarborLane.Api
             services.AddMvc();
 
             services.AddScoped<IShipsCrawler, ShipsCrawler>();
+            services.AddScoped<IShipRepository, ShipRepository>();
             
             services.AddSwaggerGen(c =>
             {
