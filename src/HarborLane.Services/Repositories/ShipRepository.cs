@@ -7,15 +7,13 @@ using HarborLane.Domain.Repositories;
 
 namespace HarborLane.Services.Repositories
 {
-    public class ShipRepository : IShipRepository
+    public class ShipRepository : RedisClient, IShipRepository
     {
         private readonly RedisHashTable _table;
 
         public ShipRepository()
         {
-            var db = new RedisDB { DataFormater = new JsonFormater() };
-            db.Host.AddWriteHost("localhost");
-            _table = db.CreateHashTable("ships");
+            _table = Db.CreateHashTable("ships");
         }
 
         public async Task<Ship> GetShipAsync(string key)
