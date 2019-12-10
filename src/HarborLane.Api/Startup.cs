@@ -32,6 +32,7 @@ namespace HarborLane.Api
 
             services.AddScoped<IShipsCrawler, ShipsCrawler>();
             services.AddScoped<IShipRepository, ShipRepository>();
+            services.AddScoped<ITimeRepository, TimeRepository>();
             
             services.AddSwaggerGen(c =>
             {
