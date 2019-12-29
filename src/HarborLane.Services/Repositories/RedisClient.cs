@@ -9,7 +9,7 @@ namespace HarborLane.Services.Repositories
         protected RedisClient()
         {
             Db = new RedisDB { DataFormater = new JsonFormater() };
-            Db.Host.AddWriteHost("localhost");
+            Db.Host.AddWriteHost("redis");
         }
     }
 }
